@@ -26,7 +26,7 @@ To initiate the training of the retriever on your data, run the `train_siamese.s
 ./train_siamese.sh
 ```
 
-Once the retriever is trained, you can build indexes for the tuples in your data lake and retrieve top-k tuples from the data lake. 你可以修改test_siamese.sh里面的参数来修改检索的tuples数量，指定数据集等。
+Once the retriever is trained, you can build indexes for the tuples in your data lake and retrieve top-k tuples from the data lake. You can modify the number of tuples to be retrieved, i.e. **num_retrieved**, dataset you want to to index in the file "test_siamese.sh". Then run:
 
 ```powershell
 ./test_siamese.sh
