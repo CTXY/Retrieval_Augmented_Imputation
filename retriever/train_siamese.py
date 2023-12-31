@@ -75,7 +75,6 @@ def main():
 
     args = parser.parse_args()
 
-    # 打印parse的所有config参数
     args_dict = vars(args)
     for key, value in args_dict.items():
         print(f"{key}: {value}")

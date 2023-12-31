@@ -1,5 +1,7 @@
-
-# pylint: disable=ungrouped-imports
+'''
+This code is written based on haystack, an Open-source LLM framework to build production-ready applications
+https://haystack.deepset.ai/
+'''
 from abc import abstractmethod
 from typing import List, Dict, Union, Optional, Any, Literal
 

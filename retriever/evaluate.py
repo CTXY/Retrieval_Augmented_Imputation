@@ -1,6 +1,3 @@
-'''
-evaluate on dev set and choose the best one to work on test set
-'''
 import os
 import argparse 
 from collections import defaultdict
