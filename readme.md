@@ -7,59 +7,62 @@ This repository contains the data and code for our paper **RAI: Retrieval Augmen
 
 ## mvBench
 To facilitate the research in retrieval-augmented missing value imputation, we release the first large-scale benchmark, **mvBench**, containing 15, 143 incomplete tuples and 4.23 million tuples from the data lake. Detailed descriptions and analyses of these datasets are provided in our paper. Also, we release pretraining data for retriever we constructed for further research. The datasets can be accessed through the following Google Drive links:
-- [Five Datasets for Data Imputation](https://drive.google.com/file/d/1UFfE9GYtAjLLxaL2HzkpdqOfRIh7gXJv/view?usp=sharing). 
+- [Five Datasets for Data Imputation](https://drive.google.com/file/d/1UFfE9GYtAjLLxaL2HzkpdqOfRIh7gXJv/view?usp=sharing)
 - [Pretraining Data for our Retriever](https://drive.google.com/file/d/1GXRSEP2MDLDG26raGS97FYKobQIyxvxC/view?usp=sharing)
 
-Each dataset contains these files: **queries.tsv, qrels.tsv, collection.tsv, folds.json**
+Each dataset on Data Imputation contains these files: **queries.tsv, qrels.tsv, collection.tsv, folds.json**
 
  - **queries.tsv**: Lists tuples with missing values denoted by "N/A", each identified by a unique ID.
  - **qrels.tsv**:  Contains query IDs, associated target tuple IDs, and their relevance scores.
  - **collection.tsv**: Each row contains a tuple ID and its corresponding complete tuple text.
  - **folds.json**:  query IDs included in the train set and the test set respectively.
+
 ## Models
 
 To facilitate ease of use, we provide our pretrained retriever model. You can download its checkpoint from [this link](https://drive.google.com/file/d/1_hFvY1SmqIVY3RZaotyr9Vm0EV7K4H79/view?usp=drive_link) for immediate use.
 
 ## Running Code
 ### Retrieval
-To initiate the training of the retriever on your data, run the `train_siamese.sh` located in the retriever directory. Modify the `file_dir`  to point to the location of your pretraining data. Execute the code using the command below:
-```powershell
-./train_siamese.sh
-```
+Execute the following steps to train the retriever on your dataset:
+1. Navigate to the retriever directory and modify the `train_siamese.sh` script, setting `file_dir` to your pretraining data location.
+2. Run the script using the command:
+   ```powershell
+   ./train_siamese.sh
+   ```
 
-Once the retriever is trained, you can build indexes for the tuples in your data lake and retrieve top-k tuples from the data lake. You can modify the number of tuples to be retrieved, i.e. **num_retrieved**, dataset you want to to index in the file "test_siamese.sh". Then run:
-
+After training, use the `test_siamese.sh` script to build indexes for tuples and retrieve the top-k tuples. Adjust num_retrieved and the dataset for indexing as required, then execute:
 ```powershell
 ./test_siamese.sh
 ```
-### Rerank
-The reranker module is built based on Pygaggle. Before running the reranker, navigate to the reranker directory, clone the Pygaggle repository and installing the required environment:
 
+### Rerank
+The reranker module leverages Pygaggle, a gaggle of deep neural architectures for text ranking and question answering. Follow these steps:
+
+1. In the reranker directory, clone the Pygaggle repository and set up the required environment:
 ```powershell
 git clone https://github.com/castorini/pygaggle.git 
 ```
-After that, move the run.sh, test.sh, train.sh, and test.py files from the reranker directory to the Pygaggle directory.
 
- 1. To prepare the training data for the reranker, in the `./reranker/data` directory, run **build_training_data.py**  and specify name of dataset and file that stores results from the retriever. For example,
- ```powershell
+2. Transfer `run.sh`, `test.sh`, `train.py`, and `test.py` from the reranker directory to Pygaggle.
+
+3. Prepare training data for the reranker by running build_training_data.py in the ./reranker/data directory. Specify the dataset and retrieval results file, for example:
+```powershell
 python build_training_data.py  --dataset_name 'wikituples'  --retrieval_file '../../results/retrieval/wikituples_retrieval_results.tsv'
 ```
- 
- 3. specify name of dataset and the file storing the first-stage retrieval results in the `./reranker/data` directory
- 
- 4. For fine-tuning the reranker:
+
+4. Fine-tune the reranker using:
 ```powershell
 ./run.sh
 ```
- 
- 4. To rerank results obtained from the retriever:
+
+5. Rerank the retrieval results:
 ```powershell
 ./test.sh
 ```
 ### Data Imputation
 
-You can refer to the *.ipynb* file in the Imputation, which contains the code of data imputatoin with or without retrieved tuples and evaluation.
+The Imputation directory contains Jupyter notebooks (*.ipynb*) with code and evaluation for data imputation, both with and without the use of retrieved tuples.
 
 ## Installation 
-We will continue to update more detailed instructions and code in the future.
+Detailed instructions and additional code updates will be provided progressively. 
 
