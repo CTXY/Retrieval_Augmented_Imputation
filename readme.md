@@ -5,9 +5,6 @@ In this paper, we explore the potential of leveraging large language models (LLM
 This repository contains the code for the paper **Retrieval Augmented Imputation for Small Tables.**
 
 
-
-## mvBench
-
 ## mvBench
 To facilitate research in retrieval-augmented missing value imputation, we release the first large-scale benchmark, **mvBench**, containing 15,143 incomplete tuples and 4.23 million tuples from the data lake. Detailed descriptions and analyses of these datasets are provided in our paper. Additionally, we release pretraining data we constructed for further research. The datasets and pretrained retriever model's checkpoints can be accessed through the following OSF repository link:
 - [Access mvBench and Pretraining Materials](https://osf.io/kh2ps/?view_only=aade7da94ad04bf9887a2b631bb57a32)
