@@ -1,8 +1,9 @@
 # RAI: Retrieval Augmented Imputation with Data Lakes
 ## Introduction
-In this paper, we study retrieval augmented imputation (**RAI**), by searching candidate tuples that can help fill the missing values of tuples from a data lake. Offline, we systematically explore different methods of training tuple embeddings so as to effectively index tuples in a data lake using a vector database. Online, after retrieving top-K tuples from the data lake using coarse-grained tuple embeddings, we further develop reranking algorithm to rerank retrieved tuples via a fine-grained value-by-value comparison, with the goal to use reranked top-k tuples ($k \ll K$) for reasoning over tuples with missing values. Extensive experiments demonstrate that RAI can significantly improve the effectiveness of missing value imputation than just using LLMs, which sheds light on the direction of combining LLMs and data lakes for missing value imputation.
+In this paper, we explore the potential of leveraging large language models (LLMs) for the imputation of massive small tables. Despite the promise of LLMs in capturing external knowledge, their application is hindered by issues of hallucination and lack of interpretability. To address these limitations, we propose a novel approach based on retrieval-augmented imputation RAI, utilizing tuple embeddings instead of traditional table embeddings. 
 
-This repository contains the data and code for our paper **RAI: Retrieval Augmented Imputation with Data Lakes.**
+This repository contains the code for the paper **Retrieval Augmented Imputation for Small Tables.**
+
 
 
 ## mvBench
