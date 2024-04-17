@@ -64,5 +64,6 @@ python build_training_data.py  --dataset_name 'wikituples'  --retrieval_file '..
 The Imputation directory contains Jupyter notebooks (*.ipynb*) with code and evaluation for data imputation, both with and without the use of retrieved tuples.
 
 ## Installation 
-Detailed instructions and additional code updates will be provided progressively. 
-
+```powershell
+pip install haystack-ai
+```
