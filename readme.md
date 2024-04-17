@@ -7,20 +7,28 @@ This repository contains the code for the paper **Retrieval Augmented Imputation
 
 
 ## mvBench
-To facilitate the research in retrieval-augmented missing value imputation, we release the first large-scale benchmark, **mvBench**, containing 15, 143 incomplete tuples and 4.23 million tuples from the data lake. Detailed descriptions and analyses of these datasets are provided in our paper. Also, we release pretraining data for retriever we constructed for further research. The datasets can be accessed through the following Google Drive links:
-- [Five Datasets for Data Imputation](https://drive.google.com/file/d/1UFfE9GYtAjLLxaL2HzkpdqOfRIh7gXJv/view?usp=sharing)
-- [Pretraining Data for our Retriever](https://drive.google.com/file/d/1GXRSEP2MDLDG26raGS97FYKobQIyxvxC/view?usp=sharing)
 
-Each dataset on Data Imputation contains these files: **queries.tsv, qrels.tsv, collection.tsv, folds.json**
+## mvBench
+To facilitate research in retrieval-augmented missing value imputation, we release the first large-scale benchmark, **mvBench**, containing 15,143 incomplete tuples and 4.23 million tuples from the data lake. Detailed descriptions and analyses of these datasets are provided in our paper. Additionally, we release pretraining data we constructed for further research. The datasets and pretrained retriever model's checkpoints can be accessed through the following OSF repository link:
+- [Access mvBench and Pretraining Materials](https://osf.io/kh2ps/?view_only=aade7da94ad04bf9887a2b631bb57a32)
+
+This repository contains:
+- **Five Datasets in mvBench**
+- **Pretraining Data for our Retriever**
+- **Checkpoints of our Pretrained Retriever**
+
+### Data Imputation Files
+Each dataset for Data Imputation includes the following files: **queries.tsv, qrels.tsv, collection.tsv, folds.json**
 
  - **queries.tsv**: Lists tuples with missing values denoted by "N/A", each identified by a unique ID.
- - **qrels.tsv**:  Contains query IDs, associated target tuple IDs, and their relevance scores.
+ - **qrels.tsv**: Contains query IDs, associated target tuple IDs, and their relevance scores.
  - **collection.tsv**: Each row contains a tuple ID and its corresponding complete tuple text.
- - **folds.json**:  query IDs included in the train set and the test set respectively.
+ - **folds.json**: Specifies query IDs included in the train set and the test set, respectively.
 
-## Models
+### Models
 
-To facilitate ease of use, we provide our pretrained retriever model. You can download its checkpoint from [this link](https://drive.google.com/file/d/1_hFvY1SmqIVY3RZaotyr9Vm0EV7K4H79/view?usp=drive_link) for immediate use.
+For ease of use, we also provide our pretrained retriever model. You can find the checkpoint in the OSF repository for immediate use.
+
 
 ## Running Code
 ### Retrieval
