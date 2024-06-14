@@ -14,8 +14,14 @@ This repository contains:
 - **Pretraining Data for our Retriever**
 - **Checkpoints of our Pretrained Retriever**
 
-### Data Imputation Files
-Each dataset for Data Imputation includes the following files: **queries.tsv, qrels.tsv, collection.tsv, folds.json**
+### mvBench
+The mvBench dataset is constructed from three main data sources:
+
+ 1. WikiTables-TURL: This dataset is sourced from "TURL: Table Understanding through Representation Learning" by Deng et al. (2022). The original dataset is available in [its GitHub repository](https://github.com/sunlab-osu/TURL/tree/release_ongoing) under the Apache License 2.0.
+ 2. Show Movie and Cricket Players: These datasets are obtained from "RetClean: Language-Model Based Data Cleaning via Retrieval" by Ahmad et al. (2023). The original datasets are available in [its GitHub repository ](https://github.com/qcri/RetClean).
+ 3. Education and Business: These datasets are collected from the [Chicago Open Data Portal](https://data.cityofchicago.org/).
+
+After colleted the data, we process and anotate them to construct mvBench. Each dataset for Data Imputation in mvBench includes the following files: **queries.tsv, qrels.tsv, collection.tsv, folds.json**
 
  - **queries.tsv**: Lists tuples with missing values denoted by "N/A", each identified by a unique ID.
  - **qrels.tsv**: Contains query IDs, associated target tuple IDs, and their relevance scores.
